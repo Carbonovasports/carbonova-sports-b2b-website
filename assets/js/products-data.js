@@ -7,6 +7,15 @@
  */
 window.CARBONOVA_PRODUCTS = [
   {
+    img: "assets/img/product-titanium-1.jpg",
+    alt: "TANYEN Titanium pickleball paddle with titanium texture surface",
+    tag: "Titanium Series",
+    title: "Titanium Paddle",
+    desc: "Titanium texture face on a PP honeycomb core with cushioned grip - USA Pickleball approved.",
+    chips: ["PP Honeycomb", "Tournament-ready"],
+    href: "product-titanium.html"
+  },
+  {
     img: "assets/img/product-t700-1.jpg",
     alt: "T700 raw carbon pickleball paddle",
     tag: "Control + Spin",
