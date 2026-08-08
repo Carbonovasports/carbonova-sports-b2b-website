@@ -59,14 +59,5 @@ window.CARBONOVA_PRODUCTS = [
     desc: "Exclusive shapes, structures, surface finishes, weights and retail packaging.",
     chips: ["OEM / ODM", "Prototyping"],
     href: "product-custom.html"
-  },
-  {
-    img: "assets/img/product-pp-1.jpg",
-    alt: "QA test paddle",
-    tag: "QA Test",
-    title: "QA Test Paddle",
-    desc: "Temporary entry to verify data-driven card rendering and auto-update.",
-    chips: ["Test", "Verify"],
-    href: "product-pp-honeycomb.html"
   }
 ];
