@@ -7,6 +7,15 @@
  */
 window.CARBONOVA_PRODUCTS = [
   {
+    img: "assets/img/product-kevlar-1.jpg",
+    alt: "Carbonova Kevlar pickleball paddle with Kevlar weave surface",
+    tag: "Kevlar Series",
+    title: "Kevlar Paddle",
+    desc: "Kevlar weave surface on a PP honeycomb core with thermoformed build - spin, precision and consistent feel.",
+    chips: ["Kevlar Weave", "Tournament-ready"],
+    href: "product-kevlar.html"
+  },
+  {
     img: "assets/img/product-titanium-1.jpg",
     alt: "TANYEN Titanium pickleball paddle with titanium texture surface",
     tag: "Titanium Series",
