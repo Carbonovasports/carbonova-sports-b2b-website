@@ -7,18 +7,18 @@
  */
 window.CARBONOVA_PRODUCTS = [
   {
-    img: "assets/img/product-kevlar-1.jpg",
-    alt: "Carbonova Kevlar pickleball paddle with Kevlar weave surface",
-    tag: "Kevlar Series",
+    img: "assets/img/product-gen5-1.jpg",
+    alt: "Carbonova GEN5 foam core pickleball paddle",
+    tag: "Power + Feel",
     isNew: true,
-    title: "Kevlar Paddle",
-    desc: "Kevlar weave surface on a PP honeycomb core with thermoformed build - spin, precision and consistent feel.",
-    chips: ["Kevlar Weave", "Tournament-ready"],
-    href: "product-kevlar.html"
+    title: "GEN5 Foam Core",
+    desc: "T700 carbon face on a GEN5 foam core with thermoformed unibody construction.",
+    chips: ["16 mm", "Elongated"],
+    href: "product-gen5-foam-core.html"
   },
   {
     img: "assets/img/product-titanium-1.jpg",
-    alt: "TANYEN Titanium pickleball paddle with titanium texture surface",
+    alt: "Carbonova Titanium pickleball paddle with titanium texture surface",
     tag: "Titanium Series",
     isNew: true,
     title: "Titanium Paddle",
@@ -27,13 +27,14 @@ window.CARBONOVA_PRODUCTS = [
     href: "product-titanium.html"
   },
   {
-    img: "assets/img/product-t700-1.jpg",
-    alt: "T700 raw carbon pickleball paddle",
-    tag: "Control + Spin",
-    title: "T700 Raw Carbon",
-    desc: "Premium surface texture, consistent control and a strong tournament-ready story.",
-    chips: ["14 / 16 mm", "USAPA options"],
-    href: "product-t700.html"
+    img: "assets/img/product-kevlar-1.jpg",
+    alt: "Carbonova Kevlar pickleball paddle with Kevlar weave surface",
+    tag: "Kevlar Series",
+    isNew: true,
+    title: "Kevlar Paddle",
+    desc: "Kevlar weave surface on a PP honeycomb core with thermoformed build - spin, precision and consistent feel.",
+    chips: ["Kevlar Weave", "Tournament-ready"],
+    href: "product-kevlar.html"
   },
   {
     img: "assets/img/product-thermo-1.jpg",
@@ -45,6 +46,15 @@ window.CARBONOVA_PRODUCTS = [
     href: "product-thermoformed.html"
   },
   {
+    img: "assets/img/product-t700-1.jpg",
+    alt: "T700 raw carbon pickleball paddle",
+    tag: "Control + Spin",
+    title: "T700 Raw Carbon",
+    desc: "Premium surface texture, consistent control and a strong tournament-ready story.",
+    chips: ["14 / 16 mm", "USA Pickleball options"],
+    href: "product-t700.html"
+  },
+  {
     img: "assets/img/product-fiberglass-1.jpg",
     alt: "Fiberglass pickleball paddle",
     tag: "Value + Accessibility",
@@ -54,18 +64,8 @@ window.CARBONOVA_PRODUCTS = [
     href: "products.html"
   },
   {
-    img: "assets/img/product-gen5-1.jpg",
-    alt: "GEN5 foam core pickleball paddle",
-    tag: "Power + Feel",
-    isNew: true,
-    title: "GEN5 Foam Core",
-    desc: "T700 carbon face on a GEN5 foam core with thermoformed unibody construction.",
-    chips: ["16 mm", "Elongated"],
-    href: "product-gen5-foam-core.html"
-  },
-  {
     img: "assets/img/product-pp-1.jpg",
-    alt: "PP honeycomb pickleball paddle",
+    alt: "Carbonova PP honeycomb pickleball paddle",
     tag: "Stable + Lightweight",
     title: "PP Honeycomb",
     desc: "Raw carbon face on a PP honeycomb core for a stable, lightweight response.",
