@@ -32,8 +32,8 @@ window.CARBONOVA_PRODUCTS = [
     tag: "Kevlar Series",
     isNew: true,
     title: "Kevlar Paddle",
-    desc: "Kevlar weave surface on a PP honeycomb core with thermoformed build - spin, precision and consistent feel.",
-    chips: ["Kevlar Weave", "Tournament-ready"],
+    desc: "Abrasion-resistant Kevlar (aramid) fiber surface on a PP honeycomb core with thermoformed build - spin, precision and durability.",
+    chips: ["Kevlar (aramid)", "Abrasion resistant"],
     href: "product-kevlar.html"
   },
   {
