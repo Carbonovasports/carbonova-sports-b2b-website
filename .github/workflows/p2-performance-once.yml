@@ -32,12 +32,11 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           from PIL import Image
-          import os, re
+          import re
 
           root = Path('.')
           img_root = root / 'assets' / 'img'
 
-          # 1) Convert the oversized homepage LCP banner to WebP.
           hero_png = img_root / 'hero-banner-green.png'
           hero_webp = img_root / 'hero-banner-green.webp'
           if hero_png.exists():
@@ -45,11 +44,9 @@ jobs:
                   if im.mode not in ('RGB', 'RGBA'):
                       im = im.convert('RGBA' if 'A' in im.getbands() else 'RGB')
                   im.save(hero_webp, 'WEBP', quality=88, method=6)
-              # Keep WebP only when it provides a meaningful saving.
               if hero_webp.stat().st_size >= hero_png.stat().st_size * 0.90:
                   hero_webp.unlink()
 
-          # 2) Convert the unusually large AEROSOUL reference image used on T700 page.
           aero_jpg = img_root / 'carbonova-aerosoul-6.0.jpg'
           aero_webp = img_root / 'carbonova-aerosoul-6.0.webp'
           if aero_jpg.exists():
@@ -66,12 +63,12 @@ jobs:
               'product-t700.html','product-thermoformed.html','product-titanium.html'
           ]
 
-          src_re = re.compile(r'\bsrc=(['\"'])(.*?)\1', re.I)
-          width_re = re.compile(r'\bwidth=(['\"']).*?\1', re.I)
-          height_re = re.compile(r'\bheight=(['\"']).*?\1', re.I)
-          loading_re = re.compile(r'\bloading=(['\"']).*?\1', re.I)
-          decoding_re = re.compile(r'\bdecoding=(['\"']).*?\1', re.I)
-          priority_re = re.compile(r'\bfetchpriority=(['\"']).*?\1', re.I)
+          src_re = re.compile(r"\bsrc=(['\"])(.*?)\1", re.I)
+          width_re = re.compile(r"\bwidth=(['\"]).*?\1", re.I)
+          height_re = re.compile(r"\bheight=(['\"]).*?\1", re.I)
+          loading_re = re.compile(r"\bloading=(['\"]).*?\1", re.I)
+          decoding_re = re.compile(r"\bdecoding=(['\"]).*?\1", re.I)
+          priority_re = re.compile(r"\bfetchpriority=(['\"]).*?\1", re.I)
           img_tag_re = re.compile(r'<img\b[^>]*>', re.I)
 
           def local_image_path(html_path, src):
@@ -86,7 +83,6 @@ jobs:
               return p if p.exists() and p.is_file() else None
 
           def add_attr(tag, attr, value):
-              # Insert before the closing > while preserving the original line/format.
               return tag[:-1] + f' {attr}="{value}">'
 
           for rel in target_files:
@@ -95,7 +91,6 @@ jobs:
                   continue
               text = html_path.read_text(encoding='utf-8')
 
-              # Switch only the selected heavy assets when WebP was retained.
               if rel == 'index.html' and hero_webp.exists():
                   text = text.replace('assets/img/hero-banner-green.png', 'assets/img/hero-banner-green.webp')
                   if 'rel="preload" as="image" href="assets/img/hero-banner-green.webp"' not in text:
@@ -115,47 +110,43 @@ jobs:
                   if not p:
                       return tag
 
-                  ext = p.suffix.lower()
-                  is_svg = ext == '.svg'
+                  is_svg = p.suffix.lower() == '.svg'
                   is_hero = 'hero-banner-img' in tag
                   is_product_main = 'id="gallery-main-img"' in tag or "id='gallery-main-img'" in tag
-                  is_header_logo = 'logo.svg' in src and 'site-header' not in tag  # dimensions already usually present
 
                   if not is_svg and (not width_re.search(tag) or not height_re.search(tag)):
                       try:
                           with Image.open(p) as im:
-                              w,h = im.size
-                          if not width_re.search(tag): tag = add_attr(tag,'width',w)
-                          if not height_re.search(tag): tag = add_attr(tag,'height',h)
+                              w, h = im.size
+                          if not width_re.search(tag): tag = add_attr(tag, 'width', w)
+                          if not height_re.search(tag): tag = add_attr(tag, 'height', h)
                       except Exception:
                           pass
 
                   if not is_svg and not decoding_re.search(tag):
-                      tag = add_attr(tag,'decoding','async')
+                      tag = add_attr(tag, 'decoding', 'async')
 
                   if is_hero or is_product_main:
-                      if not loading_re.search(tag): tag = add_attr(tag,'loading','eager')
-                      if not priority_re.search(tag): tag = add_attr(tag,'fetchpriority','high')
+                      if not loading_re.search(tag): tag = add_attr(tag, 'loading', 'eager')
+                      if not priority_re.search(tag): tag = add_attr(tag, 'fetchpriority', 'high')
                   elif not is_svg:
-                      if not loading_re.search(tag): tag = add_attr(tag,'loading','lazy')
-                      # Do not add fetchpriority=low statically; lazy-loading is sufficient and broadly supported.
+                      if not loading_re.search(tag): tag = add_attr(tag, 'loading', 'lazy')
                   return tag
 
               text = img_tag_re.sub(tune, text)
               html_path.write_text(text, encoding='utf-8')
 
-          # Remove the temporary runtime-wide fetchpriority=low behavior; static HTML now carries the important hints.
           js = root / 'assets/js/main.js'
           if js.exists():
               txt = js.read_text(encoding='utf-8')
-              block_start = txt.find('(function(){\n  var hero=document.querySelector(\'.hero-banner-img\');')
+              marker = "(function(){\n  var hero=document.querySelector('.hero-banner-img');"
+              block_start = txt.find(marker)
               if block_start != -1:
                   block_end = txt.find('})();', block_start)
                   if block_end != -1:
                       txt = txt[:block_start] + txt[block_end+5:]
-                      js.write_text(txt.rstrip()+'\n', encoding='utf-8')
+                      js.write_text(txt.rstrip() + '\n', encoding='utf-8')
 
-          # Self-remove this one-time workflow from the resulting branch.
           wf = root / '.github/workflows/p2-performance-once.yml'
           if wf.exists():
               wf.unlink()
@@ -166,16 +157,14 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           import re
-          idx=Path('index.html').read_text(encoding='utf-8')
-          assert 'class="hero-banner-img"' in idx
-          assert 'fetchpriority="high"' in idx
-          assert 'loading="eager"' in idx
-          assert 'width="1920"' in idx and 'height="1080"' in idx
-          # Ensure selected product main galleries remain eager/high priority.
+          idx = Path('index.html').read_text(encoding='utf-8')
+          m = re.search(r'<img[^>]*class="hero-banner-img"[^>]*>', idx)
+          assert m and 'fetchpriority="high"' in m.group(0) and 'loading="eager"' in m.group(0)
+          assert 'width="1920"' in m.group(0) and 'height="1080"' in m.group(0)
           for f in ['product-t700.html','product-kevlar.html','product-gen5-foam-core.html','product-padel-round-teal.html']:
-              t=Path(f).read_text(encoding='utf-8')
-              m=re.search(r'<img[^>]*id="gallery-main-img"[^>]*>',t)
-              assert m and 'loading="eager"' in m.group(0) and 'fetchpriority="high"' in m.group(0), f
+              t = Path(f).read_text(encoding='utf-8')
+              gm = re.search(r'<img[^>]*id="gallery-main-img"[^>]*>', t)
+              assert gm and 'loading="eager"' in gm.group(0) and 'fetchpriority="high"' in gm.group(0), f
           print('P2 image markup validation passed')
           PY
 
@@ -184,5 +173,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "perf: optimize LCP image and responsive image loading" || exit 0
+          git commit -m "perf: optimize LCP image and image loading" || exit 0
           git push origin seo/p2-performance-images
