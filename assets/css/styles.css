@@ -13,3 +13,5 @@
 /* Technology and resource factory image ratio fixes */
 .tech-grid .technology-stack-image{display:block;width:100%;height:auto;max-width:100%;object-fit:contain;aspect-ratio:auto;align-self:start}
 .blog-card .factory-building-image{display:block;width:100%;height:auto;max-width:100%;object-fit:contain;aspect-ratio:auto;align-self:start}
+/* Final hardening: prevent any parent/grid height from stretching these source-ratio images */
+.tech-grid .technology-stack-image,.home-factory-image.card,.blog-card .factory-building-image{height:auto!important;min-height:0;max-height:none;align-self:start;object-fit:contain;aspect-ratio:auto}
