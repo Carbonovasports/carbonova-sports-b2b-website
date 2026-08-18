@@ -15,3 +15,5 @@
 .blog-card .factory-building-image{display:block;width:100%;height:auto;max-width:100%;object-fit:contain;aspect-ratio:auto;align-self:start}
 /* Final hardening: prevent any parent/grid height from stretching these source-ratio images */
 .tech-grid .technology-stack-image,.home-factory-image.card,.blog-card .factory-building-image{height:auto!important;min-height:0;max-height:none;align-self:start;object-fit:contain;aspect-ratio:auto}
+/* Factory and quality image ratio fixes */
+.factory-building-image.card,.factory-gallery-image,.quality-qc-image.card{display:block;width:100%;height:auto!important;max-width:100%;min-height:0;max-height:none;object-fit:contain;aspect-ratio:auto;align-self:start}
