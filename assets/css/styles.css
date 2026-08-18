@@ -10,3 +10,6 @@
 /* Homepage image ratio fixes: keep the two grid images from stretching */
 .home-technology-image{display:block;width:100%;height:auto;max-width:100%;object-fit:contain;aspect-ratio:auto;align-self:start}
 .home-factory-image.card{display:block;width:100%;height:auto;max-width:100%;object-fit:contain;aspect-ratio:auto;align-self:start}
+/* Technology and resource factory image ratio fixes */
+.tech-grid .technology-stack-image{display:block;width:100%;height:auto;max-width:100%;object-fit:contain;aspect-ratio:auto;align-self:start}
+.blog-card .factory-building-image{display:block;width:100%;height:auto;max-width:100%;object-fit:contain;aspect-ratio:auto;align-self:start}
