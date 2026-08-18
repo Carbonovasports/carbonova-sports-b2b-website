@@ -7,3 +7,6 @@
 .hero-subtitle-2{margin-top:4px;font-size:14px;letter-spacing:.04em;color:var(--muted)}
 /* Padel image ratio fix (appended last so it wins over any earlier rule) */
 .card.padel-product-card img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain;aspect-ratio:auto;background:#fff}
+/* Homepage image ratio fixes: keep the two grid images from stretching */
+.home-technology-image{display:block;width:100%;height:auto;max-width:100%;object-fit:contain;aspect-ratio:auto;align-self:start}
+.home-factory-image.card{display:block;width:100%;height:auto;max-width:100%;object-fit:contain;aspect-ratio:auto;align-self:start}
