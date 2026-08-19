@@ -1,0 +1,112 @@
+name: IndexNow URL Notification
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  notify-indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Build changed public URL list
+        id: urls
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, os, subprocess
+
+          before = os.environ.get('BEFORE', '')
+          after = os.environ.get('AFTER', '')
+          if not before or set(before) == {'0'}:
+              names = subprocess.check_output(['git','show','--pretty=','--name-only',after], text=True).splitlines()
+          else:
+              names = subprocess.check_output(['git','diff','--name-only',before,after], text=True).splitlines()
+
+          host = 'www.carbonovasports.com'
+          base = f'https://{host}/'
+          urls = []
+          for path in names:
+              path = path.strip()
+              if not path:
+                  continue
+              if path == 'index.html':
+                  urls.append(base)
+              elif path.endswith('.html') and '/' not in path:
+                  urls.append(base + path)
+              elif path.startswith('blog/') and path.endswith('.html'):
+                  urls.append(base + path)
+
+          urls = sorted(set(urls))
+          with open('/tmp/indexnow_urls.json','w',encoding='utf-8') as f:
+              json.dump(urls,f)
+          print('Changed URLs:')
+          for url in urls:
+              print(url)
+          with open(os.environ['GITHUB_OUTPUT'],'a',encoding='utf-8') as out:
+              out.write(f'count={len(urls)}\n')
+          PY
+        env:
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
+
+      - name: Wait for deployment and verify key
+        if: steps.urls.outputs.count != '0'
+        shell: bash
+        run: |
+          KEY="78d8b94561fdb3f0fa1039566dffcf19"
+          KEY_URL="https://www.carbonovasports.com/${KEY}.txt"
+          for i in 1 2 3 4 5; do
+            BODY="$(curl -fsSL --max-time 15 "$KEY_URL" || true)"
+            if [ "$BODY" = "$KEY" ]; then
+              echo "IndexNow key is live."
+              exit 0
+            fi
+            echo "Key not live yet; retry $i/5 in 45 seconds..."
+            sleep 45
+          done
+          echo "IndexNow key verification file is not live; skipping submission for safety."
+          exit 1
+
+      - name: Submit changed URLs to IndexNow
+        if: steps.urls.outputs.count != '0'
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, urllib.request
+
+          key = '78d8b94561fdb3f0fa1039566dffcf19'
+          with open('/tmp/indexnow_urls.json',encoding='utf-8') as f:
+              urls = json.load(f)
+          if not urls:
+              raise SystemExit(0)
+
+          payload = json.dumps({
+              'host': 'www.carbonovasports.com',
+              'key': key,
+              'keyLocation': f'https://www.carbonovasports.com/{key}.txt',
+              'urlList': urls
+          }).encode('utf-8')
+
+          req = urllib.request.Request(
+              'https://api.indexnow.org/indexnow',
+              data=payload,
+              headers={'Content-Type':'application/json; charset=utf-8'},
+              method='POST'
+          )
+          try:
+              with urllib.request.urlopen(req, timeout=30) as resp:
+                  print('IndexNow response:', resp.status)
+          except urllib.error.HTTPError as e:
+              if e.code == 202:
+                  print('IndexNow accepted; key validation is pending (202).')
+              else:
+                  raise
+          PY
