@@ -68,4 +68,4 @@ document.querySelectorAll('[data-year]').forEach(el=>el.textContent=new Date().g
   }
 })();
 
-document.querySelectorAll('form[data-rfq-form]').forEach(function(f){var sel=f.querySelector('select[name="product"]');var pf=f.querySelectorAll('.padel-fields');if(!sel||!pf.length)return;function sync(){var show=sel.value==='Padel Racket';pf.forEach(function(el){el.style.display=show?'':'none';});}sel.addEventListener('change',sync);sync();});
+document.querySelectorAll('form[data-rfq-form]').forEach(function(f){var sel=f.querySelector('select[name="product"]');var pf=f.querySelectorAll('.padel-fields');if(!sel||!pf.length)return;function sync(){var show=sel.value==='Padel Racket';pf.forEach(function(el){el.style.display=show?'':'none';el.querySelectorAll('input,select,textarea').forEach(function(ctrl){ctrl.disabled=!show;});});}sel.addEventListener('change',sync);sync();});
