@@ -24,36 +24,31 @@
 .home-hero-products {
   position: absolute;
   z-index: 2;
-  top: 8%;
-  right: 5%;
-  bottom: 5%;
-  width: min(39vw, 540px);
+  top: 9%;
+  right: 3.5%;
+  bottom: 6%;
+  width: min(48vw, 680px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: clamp(18px, 2.2vw, 34px);
   pointer-events: none;
 }
 
 .home-hero-products img {
-  position: absolute;
+  position: static;
   display: block;
+  flex: 0 0 auto;
   width: auto;
   height: auto;
   max-width: none;
   object-fit: contain;
-  filter: drop-shadow(0 12px 12px rgba(0, 0, 0, .22));
+  filter: drop-shadow(0 10px 10px rgba(0, 0, 0, .18));
 }
 
-.home-hero-products img:nth-child(1) {
-  top: 0;
-  left: 0;
-  height: 96%;
-  transform: rotate(-2deg);
-}
-
-.home-hero-products img:nth-child(2) {
-  top: 13%;
-  right: 0;
-  height: 68%;
-  transform: rotate(2deg);
-}
+.home-hero-products img:nth-child(1) { height: 63%; }
+.home-hero-products img:nth-child(2) { height: 88%; }
+.home-hero-products img:nth-child(3) { height: 92%; }
 
 .home-hero-inner { 
   position: relative;
