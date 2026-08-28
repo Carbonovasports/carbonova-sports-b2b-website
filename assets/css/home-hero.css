@@ -46,7 +46,7 @@
   filter: drop-shadow(0 10px 10px rgba(0, 0, 0, .18));
 }
 
-.home-hero-products img:nth-child(1) { height: 92%; }
+.home-hero-products img:nth-child(1) { height: 81%; }
 .home-hero-products img:nth-child(2) { height: 82%; }
 
 .home-hero-inner { 
