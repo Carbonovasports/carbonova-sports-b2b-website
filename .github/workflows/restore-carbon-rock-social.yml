@@ -1,0 +1,57 @@
+name: Restore Carbon Rock Social Links
+
+on:
+  push:
+    branches:
+      - feature/carbon-rock-social-trust
+
+permissions:
+  contents: write
+
+jobs:
+  restore-social-links:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+
+      - name: Restore footer social block
+        shell: python
+        run: |
+          from pathlib import Path
+
+          social = '''<div class="footer-social" style="margin-top:20px"><h3 style="margin:0 0 8px">Follow Our Manufacturing Updates</h3><p class="small" style="max-width:340px;margin:0 0 10px">Manufacturing updates from Carbon Rock, the manufacturer behind Carbonova Sports.</p><div style="display:flex;flex-wrap:wrap;gap:10px"><a href="https://www.linkedin.com/company/xmcarbonrock-material-technology" target="_blank" rel="noopener noreferrer" aria-label="Carbon Rock on LinkedIn" style="display:inline-flex;align-items:center;gap:6px;margin:0"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="3" fill="#0a66c2"/><path fill="#fff" d="M6.1 9.2H3.7V20h2.4V9.2ZM4.9 3.8a1.45 1.45 0 1 0 0 2.9 1.45 1.45 0 0 0 0-2.9ZM20.3 13.8c0-3.3-1.8-4.9-4.2-4.9-1.9 0-2.7 1-3.2 1.7V9.2h-2.4V20h2.4v-5.3c0-1.4.3-2.8 2-2.8 1.7 0 1.7 1.6 1.7 2.9V20H19v-5.9c0-.1 0-.2 0-.3h1.3v0Z"/></svg><span>LinkedIn</span></a><a href="https://www.instagram.com/carbonrock_pickleball/" target="_blank" rel="noopener noreferrer" aria-label="Carbon Rock on Instagram" style="display:inline-flex;align-items:center;gap:6px;margin:0"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="6" fill="none" stroke="#d8e2e6" stroke-width="2"/><circle cx="12" cy="12" r="4.5" fill="none" stroke="#d8e2e6" stroke-width="2"/><circle cx="17.5" cy="6.7" r="1.2" fill="#d8e2e6"/></svg><span>Instagram</span></a><a href="https://www.facebook.com/carbonrock2pickleballpaddle" target="_blank" rel="noopener noreferrer" aria-label="Carbon Rock on Facebook" style="display:inline-flex;align-items:center;gap:6px;margin:0"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1877f2"/><path fill="#fff" d="M13.5 19v-6h2l.3-2.3h-2.3V9.2c0-.7.2-1.2 1.2-1.2h1.3V6c-.2 0-.9-.1-1.7-.1-1.8 0-3 1.1-3 3.1v1.7h-2V13h2v6h2.2Z"/></svg><span>Facebook</span></a></div></div>'''
+
+          changed = []
+          for p in Path('.').rglob('*.html'):
+              text = p.read_text(encoding='utf-8')
+              if 'class="footer-social"' in text:
+                  continue
+              marker = '<p class="small">Manufactured by Xiamen Carbon Rock Material Technology Co., Ltd.</p>'
+              if marker in text:
+                  text2 = text.replace(marker, marker + social, 1)
+                  p.write_text(text2, encoding='utf-8', newline='')
+                  changed.append(str(p))
+
+          about = Path('about.html')
+          text = about.read_text(encoding='utf-8')
+          old = '<p>Our focus is B2B: helping brands, distributors, importers and sports companies develop products that fit their target market rather than simply choosing from a generic catalog.</p>'
+          new = old + '<p>Follow Carbon Rock’s manufacturing updates on <a class="more" href="https://www.linkedin.com/company/xmcarbonrock-material-technology" target="_blank" rel="noopener noreferrer">LinkedIn</a>, <a class="more" href="https://www.instagram.com/carbonrock_pickleball/" target="_blank" rel="noopener noreferrer">Instagram</a> and <a class="more" href="https://www.facebook.com/carbonrock2pickleballpaddle" target="_blank" rel="noopener noreferrer">Facebook</a>.</p>'
+          if 'Follow Carbon Rock’s manufacturing updates on' not in text and old in text:
+              about.write_text(text.replace(old, new, 1), encoding='utf-8', newline='')
+              changed.append('about.html')
+
+          print(f'Changed {len(changed)} files')
+          for x in changed:
+              print(x)
+
+      - name: Commit restored files and remove one-time workflow
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/restore-carbon-rock-social.yml
+          git add -A
+          git diff --cached --quiet && exit 0
+          git commit -m "feat: add Carbon Rock manufacturing social links"
+          git push
