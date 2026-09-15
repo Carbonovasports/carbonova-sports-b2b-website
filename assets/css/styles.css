@@ -19,3 +19,7 @@
 .factory-building-image.card,.factory-gallery-image,.quality-qc-image.card{display:block;width:100%;height:auto!important;max-width:100%;min-height:0;max-height:none;object-fit:contain;aspect-ratio:auto;align-self:start}
 /* ISPO homepage feature: preserve the source ratio beside the text card */
 .trade-show-feature .trade-show-feature-image{display:block;width:100%;height:auto!important;max-width:100%;min-height:0;max-height:none;object-fit:contain;aspect-ratio:16 / 9;align-self:start}
+/* ISPO cards: keep the exhibition photos at their native 4:3 ratio */
+#trade-show-presence figure.card > img{display:block;width:100%;height:auto!important;max-width:100%;min-height:0;max-height:none;object-fit:contain;aspect-ratio:auto;align-self:start}
+/* Pickleball cards: keep both source canvases equal and undistorted */
+.card.product-card > img{display:block;width:100%;height:auto!important;max-width:100%;min-height:0;max-height:none;object-fit:contain;aspect-ratio:auto;align-self:start}
