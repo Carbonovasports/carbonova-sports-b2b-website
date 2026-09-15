@@ -17,3 +17,5 @@
 .tech-grid .technology-stack-image,.home-factory-image.card,.blog-card .factory-building-image{height:auto!important;min-height:0;max-height:none;align-self:start;object-fit:contain;aspect-ratio:auto}
 /* Factory and quality image ratio fixes */
 .factory-building-image.card,.factory-gallery-image,.quality-qc-image.card{display:block;width:100%;height:auto!important;max-width:100%;min-height:0;max-height:none;object-fit:contain;aspect-ratio:auto;align-self:start}
+/* ISPO homepage feature: preserve the source ratio beside the text card */
+.trade-show-feature .trade-show-feature-image{display:block;width:100%;height:auto!important;max-width:100%;min-height:0;max-height:none;object-fit:contain;aspect-ratio:16 / 9;align-self:start}
