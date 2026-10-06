@@ -25,3 +25,5 @@
 main#main > section.section > .container > .grid-2 > .card.product-card > img{display:block;width:100%;height:auto!important;max-width:100%;min-height:0;max-height:none;object-fit:contain;aspect-ratio:auto;align-self:start}
 /* Custom Development sits outside the page container; cap its source canvas at native width */
 .card.product-card > img[src$="product-custom-6.jpg"]{display:block;width:auto;height:auto!important;max-width:100%;min-height:0;max-height:none;object-fit:contain;aspect-ratio:auto;align-self:start}
+/* Certificate cards: preserve each certificate's source ratio in grid and mobile layouts */
+.cert-card img{display:block;width:100%;height:auto!important;max-width:100%;min-height:0;max-height:none;object-fit:contain;aspect-ratio:auto;align-self:start}
