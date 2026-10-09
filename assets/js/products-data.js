@@ -7,6 +7,16 @@
  */
 window.CARBONOVA_PRODUCTS = [
   {
+    img: "assets/img/product-3k-1.jpg",
+    alt: "Carbonova 3K woven carbon fiber pickleball paddle with perimeter foam injection",
+    tag: "Speed + Stability",
+    isNew: true,
+    title: "3K Woven Carbon",
+    desc: "3K woven carbon face on a perimeter foam-injected PP honeycomb core for agile swing weight and high twist stability.",
+    chips: ["16 mm", "3K Woven Carbon"],
+    href: "product-3k-carbon.html"
+  },
+  {
     img: "assets/img/product-gen5-1.jpg",
     alt: "Carbonova GEN5 foam core pickleball paddle",
     tag: "Power + Feel",
