@@ -7,6 +7,16 @@
  */
 window.CARBONOVA_PRODUCTS = [
   {
+    img: "assets/img/product-titanium-gold-1.jpg",
+    alt: "Carbonova Titanium Pro Gold pickleball paddle with golden TPU edge guard",
+    tag: "Titanium + Golden Guard",
+    isNew: true,
+    title: "Titanium Pro Gold",
+    desc: "Titanium weave face with perimeter foam-injected PP honeycomb core and luxury golden TPU edge guard.",
+    chips: ["16 mm", "Golden TPU Guard"],
+    href: "product-titanium-gold.html"
+  },
+  {
     img: "assets/img/product-3k-1.jpg",
     alt: "Carbonova 3K woven carbon fiber pickleball paddle with perimeter foam injection",
     tag: "Speed + Stability",
@@ -26,12 +36,11 @@ window.CARBONOVA_PRODUCTS = [
     chips: ["16 mm", "Elongated"],
     href: "product-gen5-foam-core.html"
   },
-  {
-    img: "assets/img/product-titanium-1.jpg",
+    {
+    img: "assets/img/carbonova-titanium-1.jpg",
     alt: "Carbonova Titanium pickleball paddle with titanium texture surface",
     tag: "Titanium Series",
-    isNew: true,
-    title: "Titanium Paddle",
+    title: "Titanium Classic",
     desc: "Titanium texture face on a PP honeycomb core with cushioned grip - USA Pickleball approved.",
     chips: ["PP Honeycomb", "Tournament-ready"],
     href: "product-titanium.html"
