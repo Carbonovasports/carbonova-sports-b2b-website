@@ -368,30 +368,33 @@ main#main > section.section > .container > .grid-2 > .card.product-card > img{di
 }
 
 
-/* === Pill Button Actions matching exact screenshot style === */
+
+
+/* === Unified Card Actions (50/50 Grid Split, Never Truncates) === */
 .p-card-actions {
-  display: flex !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
   gap: 6px !important;
   margin-top: auto !important;
-  align-items: center !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 .p-card-btn-view, .btn-p-view, .btn-p-primary {
-  flex: 1.1 !important;
   background: #0b171d !important;
   color: #ffffff !important;
-  padding: 6px 8px !important;
   border-radius: 999px !important;
   font-size: 11px !important;
   font-weight: 700 !important;
-  text-align: center !important;
-  text-decoration: none !important;
-  display: inline-flex !important;
+  display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  transition: background 0.15s ease, transform 0.15s ease !important;
+  text-align: center !important;
+  text-decoration: none !important;
   height: 29px !important;
-  box-sizing: border-box !important;
+  padding: 0 4px !important;
   white-space: nowrap !important;
+  box-sizing: border-box !important;
+  transition: background 0.15s ease, transform 0.15s ease !important;
 }
 .p-card-btn-view:hover, .btn-p-view:hover, .btn-p-primary:hover {
   background: #1e293b !important;
@@ -399,22 +402,21 @@ main#main > section.section > .container > .grid-2 > .card.product-card > img{di
   transform: translateY(-1px) !important;
 }
 .p-card-btn-wa, .btn-p-wa {
-  flex: 0.9 !important;
   background: #25D366 !important;
   color: #ffffff !important;
-  padding: 6px 8px !important;
   border-radius: 999px !important;
   font-size: 11px !important;
   font-weight: 700 !important;
-  text-align: center !important;
-  text-decoration: none !important;
-  display: inline-flex !important;
+  display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  transition: background 0.15s ease, transform 0.15s ease !important;
+  text-align: center !important;
+  text-decoration: none !important;
   height: 29px !important;
-  box-sizing: border-box !important;
+  padding: 0 4px !important;
   white-space: nowrap !important;
+  box-sizing: border-box !important;
+  transition: background 0.15s ease, transform 0.15s ease !important;
 }
 .p-card-btn-wa:hover, .btn-p-wa:hover {
   background: #20ba59 !important;
