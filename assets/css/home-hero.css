@@ -36,19 +36,19 @@
 }
 
 .home-hero-products img {
-  position: static;
-  display: block;
-  flex: 0 0 auto;
-  width: auto;
-  height: auto;
-  max-width: none;
-  max-height: 100%;
-  object-fit: contain;
-  filter: drop-shadow(0 10px 10px rgba(0, 0, 0, .18));
+  position: static !important;
+  display: block !important;
+  flex: 0 0 auto !important;
+  width: auto !important;
+  max-width: 48% !important;
+  height: auto !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  filter: drop-shadow(0 10px 10px rgba(0, 0, 0, .18)) !important;
 }
 
-.home-hero-products img:nth-child(1) { height: 81%; max-height: 81%; }
-.home-hero-products img:nth-child(2) { height: 82%; max-height: 82%; }
+.home-hero-products img:nth-child(1) { height: 81% !important; max-height: 81% !important; }
+.home-hero-products img:nth-child(2) { height: 82% !important; max-height: 82% !important; }
 
 .home-hero-inner { 
   position: relative;
