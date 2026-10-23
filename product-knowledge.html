@@ -16,239 +16,67 @@
   <link rel="manifest" href="site.webmanifest">
   <link rel="stylesheet" href="assets/css/styles.css">
   <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@graph":[
-      {
-        "@type":"Organization",
-        "@id":"https://www.carbonovasports.com/#organization",
-        "name":"Carbonova Sports",
-        "legalName":"Xiamen Carbon Rock Material Technology Co., Ltd.",
-        "url":"https://www.carbonovasports.com/"
-      },
-      {
-        "@type":"CollectionPage",
-        "@id":"https://www.carbonovasports.com/product-knowledge.html#page",
-        "url":"https://www.carbonovasports.com/product-knowledge.html",
-        "name":"Carbonova Sports Product Knowledge Hub",
-        "description":"Product taxonomy for Carbonova pickleball paddle and padel racket manufacturing platforms, materials, cores, constructions and OEM development routes.",
-        "isPartOf":{"@id":"https://www.carbonovasports.com/#organization"},
-        "about":[
-          {"@id":"https://www.carbonovasports.com/product-knowledge.html#pickleball-group"},
-          {"@id":"https://www.carbonovasports.com/product-knowledge.html#padel-group"},
-          {"@id":"https://www.carbonovasports.com/product-knowledge.html#materials"}
-        ]
-      },
-      {
-        "@type":"ProductGroup",
-        "@id":"https://www.carbonovasports.com/product-knowledge.html#pickleball-group",
-        "name":"Carbonova Pickleball Paddle Manufacturing Platforms",
-        "description":"OEM and private-label pickleball paddle platforms spanning T700 raw carbon, thermoformed, foam-core, polypropylene honeycomb, aramid-fiber and value-oriented composite constructions.",
-        "brand":{"@type":"Brand","name":"Carbonova Sports"},
-        "manufacturer":{"@id":"https://www.carbonovasports.com/#organization"},
-        "category":"Pickleball Paddle",
-        "hasVariant":[
-          {"@id":"https://www.carbonovasports.com/product-t700.html#product"},
-          {"@id":"https://www.carbonovasports.com/product-thermoformed.html#product"},
-          {"@id":"https://www.carbonovasports.com/product-gen5-foam-core.html#product"},
-          {"@id":"https://www.carbonovasports.com/product-pp-honeycomb.html#product"},
-          {"@id":"https://www.carbonovasports.com/product-kevlar.html#product"},
-          {"@id":"https://www.carbonovasports.com/product-titanium.html#product"},
-          {"@id":"https://www.carbonovasports.com/product-custom.html#product"}
-        ]
-      },
-      {
-        "@type":"Product",
-        "@id":"https://www.carbonovasports.com/product-t700.html#product",
-        "name":"T700 Raw Carbon Pickleball Paddle",
-        "url":"https://www.carbonovasports.com/product-t700.html",
-        "category":"Pickleball Paddle",
-        "material":"T700 raw carbon fiber",
-        "manufacturer":{"@id":"https://www.carbonovasports.com/#organization"},
-        "additionalProperty":[
-          {"@type":"PropertyValue","name":"Core","value":"Polymer honeycomb"},
-          {"@type":"PropertyValue","name":"Positioning","value":"Spin and control"}
-        ]
-      },
-      {
-        "@type":"Product",
-        "@id":"https://www.carbonovasports.com/product-thermoformed.html#product",
-        "name":"Thermoformed Pickleball Paddle",
-        "url":"https://www.carbonovasports.com/product-thermoformed.html",
-        "category":"Pickleball Paddle",
-        "manufacturer":{"@id":"https://www.carbonovasports.com/#organization"},
-        "additionalProperty":[
-          {"@type":"PropertyValue","name":"Construction","value":"Thermoformed unibody / reinforced perimeter options"},
-          {"@type":"PropertyValue","name":"Positioning","value":"Power and stability"}
-        ]
-      },
-      {
-        "@type":"Product",
-        "@id":"https://www.carbonovasports.com/product-gen5-foam-core.html#product",
-        "name":"GEN5 Foam Core Pickleball Paddle",
-        "url":"https://www.carbonovasports.com/product-gen5-foam-core.html",
-        "category":"Pickleball Paddle",
-        "material":"T700 carbon fiber",
-        "manufacturer":{"@id":"https://www.carbonovasports.com/#organization"},
-        "additionalProperty":[
-          {"@type":"PropertyValue","name":"Core","value":"Foam core"},
-          {"@type":"PropertyValue","name":"Positioning","value":"Power, stability and feel"}
-        ]
-      },
-      {
-        "@type":"Product",
-        "@id":"https://www.carbonovasports.com/product-pp-honeycomb.html#product",
-        "name":"PP Honeycomb Pickleball Paddle",
-        "url":"https://www.carbonovasports.com/product-pp-honeycomb.html",
-        "category":"Pickleball Paddle",
-        "manufacturer":{"@id":"https://www.carbonovasports.com/#organization"},
-        "additionalProperty":[
-          {"@type":"PropertyValue","name":"Core","value":"Polypropylene honeycomb"},
-          {"@type":"PropertyValue","name":"Positioning","value":"Stable and lightweight"}
-        ]
-      },
-      {
-        "@type":"Product",
-        "@id":"https://www.carbonovasports.com/product-kevlar.html#product",
-        "name":"Kevlar (Aramid) Pickleball Paddle",
-        "url":"https://www.carbonovasports.com/product-kevlar.html",
-        "category":"Pickleball Paddle",
-        "material":"Kevlar (Aramid) fiber face",
-        "manufacturer":{"@id":"https://www.carbonovasports.com/#organization"},
-        "additionalProperty":[
-          {"@type":"PropertyValue","name":"Core","value":"Polypropylene honeycomb"},
-          {"@type":"PropertyValue","name":"Positioning","value":"Durability, spin and precision"}
-        ]
-      },
-      {
-        "@type":"Product",
-        "@id":"https://www.carbonovasports.com/product-titanium.html#product",
-        "name":"Titanium Texture Pickleball Paddle",
-        "url":"https://www.carbonovasports.com/product-titanium.html",
-        "category":"Pickleball Paddle",
-        "manufacturer":{"@id":"https://www.carbonovasports.com/#organization"},
-        "additionalProperty":[
-          {"@type":"PropertyValue","name":"Surface","value":"Titanium texture"},
-          {"@type":"PropertyValue","name":"Core","value":"Polypropylene honeycomb"}
-        ]
-      },
-      {
-        "@type":"Product",
-        "@id":"https://www.carbonovasports.com/product-custom.html#product",
-        "name":"Custom OEM / ODM Pickleball Paddle",
-        "url":"https://www.carbonovasports.com/product-custom.html",
-        "category":"Pickleball Paddle",
-        "manufacturer":{"@id":"https://www.carbonovasports.com/#organization"},
-        "additionalProperty":[
-          {"@type":"PropertyValue","name":"Customization","value":"Shape, materials, structure, surface, branding and packaging"}
-        ]
-      },
-      {
-        "@type":"ProductGroup",
-        "@id":"https://www.carbonovasports.com/product-knowledge.html#padel-group",
-        "name":"Carbonova Padel Racket Manufacturing Platforms",
-        "description":"OEM and private-label padel racket platforms organized by shape, face material, EVA core and performance target.",
-        "brand":{"@type":"Brand","name":"Carbonova Sports"},
-        "manufacturer":{"@id":"https://www.carbonovasports.com/#organization"},
-        "category":"Padel Racket",
-        "hasVariant":[
-          {"@id":"https://www.carbonovasports.com/product-padel-pink.html#product"},
-          {"@id":"https://www.carbonovasports.com/product-padel-orange.html#product"},
-          {"@id":"https://www.carbonovasports.com/product-padel-round-teal.html#product"},
-          {"@id":"https://www.carbonovasports.com/product-padel-diamond-gold.html#product"},
-          {"@id":"https://www.carbonovasports.com/product-padel-custom-lime.html#product"}
-        ]
-      },
-      {
-        "@type":"Product",
-        "@id":"https://www.carbonovasports.com/product-padel-pink.html#product",
-        "name":"3K Carbon Teardrop Padel Racket",
-        "url":"https://www.carbonovasports.com/product-padel-pink.html",
-        "category":"Padel Racket",
-        "material":"3K carbon fiber",
-        "manufacturer":{"@id":"https://www.carbonovasports.com/#organization"},
-        "additionalProperty":[
-          {"@type":"PropertyValue","name":"Shape","value":"Teardrop"},
-          {"@type":"PropertyValue","name":"Core","value":"Soft EVA"},
-          {"@type":"PropertyValue","name":"Positioning","value":"Balanced power and control"}
-        ]
-      },
-      {
-        "@type":"Product",
-        "@id":"https://www.carbonovasports.com/product-padel-orange.html#product",
-        "name":"3K Carbon Round Padel Racket",
-        "url":"https://www.carbonovasports.com/product-padel-orange.html",
-        "category":"Padel Racket",
-        "material":"3K carbon fiber",
-        "manufacturer":{"@id":"https://www.carbonovasports.com/#organization"},
-        "additionalProperty":[
-          {"@type":"PropertyValue","name":"Shape","value":"Round"},
-          {"@type":"PropertyValue","name":"Positioning","value":"Balanced control"}
-        ]
-      },
-      {
-        "@type":"Product",
-        "@id":"https://www.carbonovasports.com/product-padel-round-teal.html#product",
-        "name":"3K Carbon Round Control Padel Racket",
-        "url":"https://www.carbonovasports.com/product-padel-round-teal.html",
-        "category":"Padel Racket",
-        "material":"3K carbon fiber",
-        "manufacturer":{"@id":"https://www.carbonovasports.com/#organization"},
-        "additionalProperty":[
-          {"@type":"PropertyValue","name":"Shape","value":"Round"},
-          {"@type":"PropertyValue","name":"Positioning","value":"Control and larger sweet spot"}
-        ]
-      },
-      {
-        "@type":"Product",
-        "@id":"https://www.carbonovasports.com/product-padel-diamond-gold.html#product",
-        "name":"3K Carbon Diamond Power Padel Racket",
-        "url":"https://www.carbonovasports.com/product-padel-diamond-gold.html",
-        "category":"Padel Racket",
-        "material":"3K carbon fiber",
-        "manufacturer":{"@id":"https://www.carbonovasports.com/#organization"},
-        "additionalProperty":[
-          {"@type":"PropertyValue","name":"Shape","value":"Diamond"},
-          {"@type":"PropertyValue","name":"Core","value":"Medium-density EVA"},
-          {"@type":"PropertyValue","name":"Positioning","value":"Power"}
-        ]
-      },
-      {
-        "@type":"Product",
-        "@id":"https://www.carbonovasports.com/product-padel-custom-lime.html#product",
-        "name":"Custom Padel Racket Platform",
-        "url":"https://www.carbonovasports.com/product-padel-custom-lime.html",
-        "category":"Padel Racket",
-        "manufacturer":{"@id":"https://www.carbonovasports.com/#organization"},
-        "additionalProperty":[
-          {"@type":"PropertyValue","name":"Customization","value":"Shape, carbon face, EVA density, balance, graphics, grip and packaging"}
-        ]
-      },
-      {
-        "@type":"DefinedTermSet",
-        "@id":"https://www.carbonovasports.com/product-knowledge.html#materials",
-        "name":"Carbonova Racket Materials and Construction Terms",
-        "hasDefinedTerm":[
-          {"@type":"DefinedTerm","name":"T700 carbon fiber","description":"Carbon-fiber face material used for premium pickleball paddle platforms where spin, control and structural stiffness are priorities."},
-          {"@type":"DefinedTerm","name":"Kevlar (Aramid) fiber","description":"Abrasion-resistant fiber face option used in selected pickleball constructions. Use the Kevlar (Aramid) label only when the supplied material is verified as such."},
-          {"@type":"DefinedTerm","name":"Polypropylene honeycomb","description":"Lightweight polymer honeycomb core widely used in pickleball paddles for a stable, familiar response."},
-          {"@type":"DefinedTerm","name":"Foam core","description":"Foam-based paddle core platform used where power, stability and feel are development priorities."},
-          {"@type":"DefinedTerm","name":"Thermoformed construction","description":"Heat-and-pressure bonded paddle construction used for reinforced perimeter, unibody and performance-oriented builds."},
-          {"@type":"DefinedTerm","name":"Fiberglass","description":"Composite face option used for value-oriented pickleball paddles and selected padel programs."},
-          {"@type":"DefinedTerm","name":"3K / 12K / 18K carbon","description":"Carbon weave options for padel racket faces, selected according to target stiffness, feel, positioning and cost."},
-          {"@type":"DefinedTerm","name":"EVA core","description":"Padel racket core material available in soft, medium and hard density ranges depending on target comfort, response and power."}
-        ]
-      },
-      {
-        "@type":"BreadcrumbList",
-        "itemListElement":[
-          {"@type":"ListItem","position":1,"name":"Home","item":"https://www.carbonovasports.com/"},
-          {"@type":"ListItem","position":2,"name":"Product Knowledge","item":"https://www.carbonovasports.com/product-knowledge.html"}
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.carbonovasports.com/#organization",
+      "name": "Carbonova Sports",
+      "legalName": "Xiamen Carbon Rock Material Technology Co., Ltd.",
+      "url": "https://www.carbonovasports.com/"
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://www.carbonovasports.com/product-knowledge.html#page",
+      "url": "https://www.carbonovasports.com/product-knowledge.html",
+      "name": "Carbonova Sports Product Knowledge Hub",
+      "description": "Product taxonomy for Carbonova pickleball paddle and padel racket manufacturing platforms, materials, cores, constructions and OEM development routes.",
+      "isPartOf": { "@id": "https://www.carbonovasports.com/#organization" },
+      "mainEntity": {
+        "@type": "ItemList",
+        "name": "Pickleball and Padel Manufacturing Platforms",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "T700 Raw Carbon Pickleball Paddle", "url": "https://www.carbonovasports.com/product-t700.html" },
+          { "@type": "ListItem", "position": 2, "name": "Thermoformed Pickleball Paddle", "url": "https://www.carbonovasports.com/product-thermoformed.html" },
+          { "@type": "ListItem", "position": 3, "name": "GEN5 Foam Core Pickleball Paddle", "url": "https://www.carbonovasports.com/product-gen5-foam-core.html" },
+          { "@type": "ListItem", "position": 4, "name": "PP Honeycomb Pickleball Paddle", "url": "https://www.carbonovasports.com/product-pp-honeycomb.html" },
+          { "@type": "ListItem", "position": 5, "name": "Kevlar (Aramid) Pickleball Paddle", "url": "https://www.carbonovasports.com/product-kevlar.html" },
+          { "@type": "ListItem", "position": 6, "name": "Titanium Texture Pickleball Paddle", "url": "https://www.carbonovasports.com/product-titanium.html" },
+          { "@type": "ListItem", "position": 7, "name": "Custom OEM / ODM Pickleball Paddle", "url": "https://www.carbonovasports.com/product-custom.html" },
+          { "@type": "ListItem", "position": 8, "name": "3K Carbon Teardrop Padel Racket", "url": "https://www.carbonovasports.com/product-padel-pink.html" },
+          { "@type": "ListItem", "position": 9, "name": "3K Carbon Round Padel Racket", "url": "https://www.carbonovasports.com/product-padel-orange.html" },
+          { "@type": "ListItem", "position": 10, "name": "3K Carbon Round Control Padel Racket", "url": "https://www.carbonovasports.com/product-padel-round-teal.html" },
+          { "@type": "ListItem", "position": 11, "name": "3K Carbon Diamond Power Padel Racket", "url": "https://www.carbonovasports.com/product-padel-diamond-gold.html" },
+          { "@type": "ListItem", "position": 12, "name": "Custom Padel Racket Platform", "url": "https://www.carbonovasports.com/product-padel-custom-lime.html" }
         ]
       }
-    ]
-  }
-  </script>
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://www.carbonovasports.com/product-knowledge.html#materials",
+      "name": "Carbonova Racket Materials and Construction Terms",
+      "hasDefinedTerm": [
+        { "@type": "DefinedTerm", "name": "T700 carbon fiber", "description": "Carbon-fiber face material used for premium pickleball paddle platforms where spin, control and structural stiffness are priorities." },
+        { "@type": "DefinedTerm", "name": "Kevlar (Aramid) fiber", "description": "Abrasion-resistant fiber face option used in selected pickleball constructions." },
+        { "@type": "DefinedTerm", "name": "Polypropylene honeycomb", "description": "Lightweight polymer honeycomb core widely used in pickleball paddles for a stable, familiar response." },
+        { "@type": "DefinedTerm", "name": "Foam core", "description": "Foam-based paddle core platform used where power, stability and feel are development priorities." },
+        { "@type": "DefinedTerm", "name": "Thermoformed construction", "description": "Heat-and-pressure bonded paddle construction used for reinforced perimeter, unibody and performance-oriented builds." },
+        { "@type": "DefinedTerm", "name": "Fiberglass", "description": "Composite face option used for value-oriented pickleball paddles and selected padel programs." },
+        { "@type": "DefinedTerm", "name": "3K / 12K / 18K carbon", "description": "Carbon weave options for padel racket faces, selected according to target stiffness, feel, positioning and cost." },
+        { "@type": "DefinedTerm", "name": "EVA core", "description": "Padel racket core material available in soft, medium and hard density ranges depending on target comfort, response and power." }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.carbonovasports.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Product Knowledge", "item": "https://www.carbonovasports.com/product-knowledge.html" }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
