@@ -146,4 +146,10 @@
     <priority>0.85</priority>
   </url>
   <url><loc>https://www.carbonovasports.com/blog/trufoam-vs-mpp-foam-injection-pickleball-paddles.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url>
+    <loc>https://www.carbonovasports.com/blog/aerodynamic-throat-pickleball-paddles-oem-guide.html</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
