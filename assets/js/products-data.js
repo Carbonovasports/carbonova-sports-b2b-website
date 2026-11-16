@@ -7,13 +7,23 @@
  */
 window.CARBONOVA_PRODUCTS = [
   {
-    img: "assets/img/product-gen5-mpp-1.jpg",
-    alt: "GEN5 MPP Pickleball Paddles with Toray T700 raw carbon face and GEN5 MPP multi-layer foam core",
-    tag: "GEN5 MPP FOAM",
+    img: "assets/img/product-gen5-mpp-paddles-1.jpg",
+    alt: "GEN5 MPP Pickleball Paddles with Toray T700 raw carbon face and pink TPU edge guard",
+    tag: "NEW 2026 / GEN5 MPP",
     isNew: true,
     title: "GEN5 MPP Pickleball Paddles",
-    desc: "Japanese Toray T700 raw carbon fiber face with GEN5 MPP multi-layer foam core (MPP + EVA + TPE), 14cm extended handle, and custom gradient colour edge guard.",
-    chips: ["16 mm", "GEN5 MPP Foam", "Toray T700"],
+    desc: "Japanese Toray T700 raw carbon face, GEN5 MPP multi-layer core (MPP + EVA + TPE), pink gradient TPU edge guard, and 14cm extended handle.",
+    chips: ["16 mm", "GEN5 MPP Foam", "Pink Edge"],
+    href: "product-gen5-mpp-paddles.html"
+  },
+  {
+    img: "assets/img/product-gen5-mpp-1.jpg",
+    alt: "GEN5 MPP FOAM pickleball paddle with golden edge guard",
+    tag: "GEN5 MPP FOAM",
+    isNew: true,
+    title: "GEN5 MPP FOAM Classic",
+    desc: "Tournament-grade GEN5 MPP multi-layer foam injection paddle with golden TPU edge guard and Toray T700 raw carbon face.",
+    chips: ["16 mm", "GEN5 MPP Foam", "Golden Guard"],
     href: "product-gen5-mpp-foam.html"
   },
   {
